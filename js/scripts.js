@@ -58,6 +58,8 @@ $(document).ready(function(){
       alert("answer all the questions");
       allAnswered = true;
     } else {
+      debugger;
+      $(".mainColumn").slideToggle();
 
       var languagesArray = [];
       var numberOfLanguages = 15;
@@ -212,7 +214,7 @@ $(document).ready(function(){
       $("#thirdBest").after("<span  class = 'result'>" + langDicts[listOfBestLanguages[2]] + "!" + "</span>");
       $(".results").removeClass("hideBox");
       $(".resultsTitle").removeClass("hideBox");
-      window.scrollBy(0, 1500);
+      // window.scrollBy(0, 1500);
 
     }
 

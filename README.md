@@ -16,7 +16,6 @@ _This is a webpage with several questions to determine the best three programmin
 * _open the folder_
 * _open index.html by double clicking, or right click and say "open with" and select your browser_
 
-
 ## Known Bugs
 
 _Sometimes the c++ section does not appear_
