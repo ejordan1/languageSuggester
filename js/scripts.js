@@ -13,9 +13,10 @@ var langDicts = {
 $(document).ready(function(){
 
   $("#form").submit(function(event){
+    event.preventDefault();
     //delete previous results
     $(".result").remove();
-    debugger;
+
     var q1answer = parseInt($("input:radio[name=q1]:checked").val());
     var q2answer = parseInt($("input:radio[name=q2]:checked").val());
     var q3answer = parseInt($("input:radio[name=q3]:checked").val());
@@ -74,8 +75,6 @@ $(document).ready(function(){
 
       languagesArray[7] += q6answer * 3;
 
-
-
       var listOfBestLanguages = [];
       while (listOfBestLanguages.length < 3){
         var highests = getValuesAndSetToLow(findMaxValueArray(languagesArray), languagesArray);
@@ -87,11 +86,13 @@ $(document).ready(function(){
         console.log(langDicts[listOfBestLanguages[i]]);
       }
 
+      $(".javaBox").addClass("firstBox");
+      (".javaBox").removeClass("hideBox");
       $("#firstBest").after("<span  class = 'result'>" + langDicts[listOfBestLanguages[0]] + "</span>");
+
       $("#secondBest").after("<span  class = 'result'>" + langDicts[listOfBestLanguages[1]] + "</span>");
       $("#thirdBest").after("<span  class = 'result'>" + langDicts[listOfBestLanguages[2]] + "</span>");
     }
-    event.preventDefault();
 
   });
 });
