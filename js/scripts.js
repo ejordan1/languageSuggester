@@ -6,7 +6,7 @@ var langDicts = {
   3 : "Ruby",
   4 : "Python",
   5 : "C",
-  6 : "C++",
+  6 : "Cplusplus",
   7 : "Haskell"
 }
 
@@ -21,7 +21,7 @@ $(document).ready(function(){
     $(".csharpBox").addClass("hideBox");
     $(".pythonBox").addClass("hideBox");
     $(".haskellBox").addClass("hideBox");
-    $(".c++Box").addClass("hideBox");
+    $(".cplusplusBox").addClass("hideBox");
     $(".rubyBox").addClass("hideBox");
     $(".cBox").addClass("hideBox");
     $(".javaBox").addClass("hideBox");
@@ -116,13 +116,18 @@ $(document).ready(function(){
             $(".rubyBox").removeClass("hideBox");
             $(".rubyBox").addClass("firstBox");
             break;
-            case "C++":
-            $(".c+Box").removeClass("hideBox");
-            $(".c++Box").addClass("firstBox");
+            case "Cplusplus":
+            debugger;
+            $(".cplusplusBox").removeClass("hideBox");
+            $(".cplusplusBox").addClass("firstBox");
             break;
             case "Haskell":
             $(".haskellBox").removeClass("hideBox");
             $(".haskellBox").addClass("firstBox");
+            break;
+            case "C":
+            $(".cBox").removeClass("hideBox");
+            $(".cBox").addClass("firstBox");
             break;
             default:
           }
@@ -150,13 +155,17 @@ $(document).ready(function(){
             $(".rubyBox").addClass("secondBox");
             break;
             case "C++":
-            $(".c++Box").removeClass("hideBox");
-            $(".c++Box").addClass("secondBox");
+            debugger;
+            $(".cplusplusBox").removeClass("hideBox");
+            $(".cplusplusBox").addClass("secondBox");
             break;
             case "Haskell":
             $(".haskellBox").removeClass("hideBox");
             $(".haskellBox").addClass("secondBox");
             break;
+            case "C":
+            $(".cBox").removeClass("hideBox");
+            $(".cBox").addClass("firstBox");
             default:
           }
 
@@ -182,24 +191,29 @@ $(document).ready(function(){
             $(".rubyBox").removeClass("hideBox");
             $(".rubyBox").addClass("thirdBox");
             break;
-            case "C++":
-            $(".c++Box").removeClass("hideBox");
-            $(".c++Box").addClass("thirdBox");
+            case "Cplusplus":
+            debugger;
+            $(".cplusplusBox").removeClass("hideBox");
+            $(".cplusplusBox").addClass("thirdBox");
             break;
             case "Haskell":
             $(".haskellBox").removeClass("hideBox");
             $(".haskellBox").addClass("thirdBox");
             break;
+            case "C":
+            $(".cBox").removeClass("hideBox");
+            $(".cBox").addClass("firstBox");
             default:
           }
 
-
-
+      langDicts[6] = "C++";
       $("#firstBest").after("<span  class = 'result'>" + langDicts[listOfBestLanguages[0]] + "!" + "</span>");
       $("#secondBest").after("<span  class = 'result'>" + langDicts[listOfBestLanguages[1]] + "!" + "</span>");
       $("#thirdBest").after("<span  class = 'result'>" + langDicts[listOfBestLanguages[2]] + "!" + "</span>");
       $(".results").removeClass("hideBox");
-      window.scrollBy(0, 1000);
+      $(".resultsTitle").removeClass("hideBox");
+      window.scrollBy(0, 1500);
+
     }
 
   });

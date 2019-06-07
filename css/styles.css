@@ -27,6 +27,18 @@ html {
   grid-template-rows: 1fr 1fr 1fr;
 }
 
+.languageBox{
+
+}
+
+.languageTitle{
+  padding-left: 7px;
+}
+
+.languageDescription{
+  padding-left: 15px;
+}
+
 .submitButton{
   display: flex;
   margin-left: auto;
@@ -34,33 +46,55 @@ html {
 
 }
 
+.resultsTitle{
+  text-align: center;
+  font-size: 30px;
+  text-decoration: underline;
+  margin: 50px;
+}
+
+
+.results{
+  margin: 50px;
+}
+
+
 .hideBox{
   display:none;
 }
 
+.topArea{
+  text-align: center;
+}
+
 .firstBox {
-  grid-column-start: 1;
+  /* grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 1;
-  grid-row-end: 2;
+  grid-row-end: 2; */
   background-color: #dee9f9;
 
 }
 .secondBox {
 
-  grid-column-start: 2;a
+  /* grid-column-start: 2;a
   grid-column-end: 3;
   grid-row-start: 1;
-  grid-row-end: 3;
+  grid-row-end: 3; */
   background-color: #dcf4f7;
 
 }
 .thirdBox {
 
-  grid-column-start: 2;
+  /* grid-column-start: 2;
   grid-column-end: 4;
   grid-row-start: 1;
-  grid-row-end: 2;
+  grid-row-end: 2; */
   background-color: #d9dcf7;
 
+}
+
+.blankSpace{
+  margin: 35px;
+  border-top: solid 1px;
 }
