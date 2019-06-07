@@ -6,12 +6,16 @@ var langDicts = {
   3 : "Ruby!",
   4 : "Python!",
   5 : "C!",
-  6 : "C++!"
+  6 : "C++!",
+  7 : "Haskell!"
 }
 
 $(document).ready(function(){
 
   $("#form").submit(function(event){
+    //delete previous results
+    $(".result").remove();
+    debugger;
     var q1answer = parseInt($("input:radio[name=q1]:checked").val());
     var q2answer = parseInt($("input:radio[name=q2]:checked").val());
     var q3answer = parseInt($("input:radio[name=q3]:checked").val());
@@ -45,17 +49,32 @@ $(document).ready(function(){
     } else {
 
       var languagesArray = [];
-      var numberOfLanguages = 6;
+      var numberOfLanguages = 15;
       for (var i = 0; i < numberOfLanguages; i++){
         languagesArray.push(0);
       }
 
       languagesArray[0] += q1answer;
-      languagesArray[1] += q2answer;
-      languagesArray[2] += q3answer;
-      languagesArray[3] += q4answer;
-      languagesArray[4] += q5answer;
-      languagesArray[5] += q5answer;
+
+      languagesArray[0] += q2answer * 1;
+      languagesArray[1] += q2answer * 1.5;
+      languagesArray[2] += q2answer * 1;
+      languagesArray[6] += q2answer * 1;
+
+      languagesArray[0] += q3answer * -1;
+      languagesArray[2] += q3answer * -1;
+      languagesArray[1] += q3answer * -1;
+      languagesArray[4] += q3answer * 1;
+      languagesArray[5] += q3answer * 1;
+      languagesArray[6] += q3answer * 1;
+      languagesArray[7] += q3answer * 1;
+
+
+      languagesArray[4] += q5answer * 1;
+
+      languagesArray[7] += q6answer * 3;
+
+
 
       var listOfBestLanguages = [];
       while (listOfBestLanguages.length < 3){
@@ -64,9 +83,13 @@ $(document).ready(function(){
           listOfBestLanguages.push(highests[i]);
         }
       }
-      $("#firstBest").after(langDicts[listOfBestLanguages[0]]);
-      $("#secondBest").after(langDicts[listOfBestLanguages[1]]);
-      $("#thirdBest").after(langDicts[listOfBestLanguages[2]]);
+      for (var i = 0; i < 3; i++){
+        console.log(langDicts[listOfBestLanguages[i]]);
+      }
+
+      $("#firstBest").after("<span  class = 'result'>" + langDicts[listOfBestLanguages[0]] + "</span>");
+      $("#secondBest").after("<span  class = 'result'>" + langDicts[listOfBestLanguages[1]] + "</span>");
+      $("#thirdBest").after("<span  class = 'result'>" + langDicts[listOfBestLanguages[2]] + "</span>");
     }
     event.preventDefault();
 
