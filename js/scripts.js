@@ -1,4 +1,13 @@
 
+var langDicts = {
+  0 : "Javascript!",
+  1 : "C#!",
+  2 : "Java!",
+  3 : "Ruby!",
+  4 : "Python!",
+  5 : "C!",
+  6 : "C++!"
+}
 
 $(document).ready(function(){
 
@@ -34,7 +43,7 @@ $(document).ready(function(){
       alert("answer all the questions");
       allAnswered = true;
     } else {
-      debugger;
+
       var languagesArray = [];
       var numberOfLanguages = 6;
       for (var i = 0; i < numberOfLanguages; i++){
@@ -55,9 +64,9 @@ $(document).ready(function(){
           listOfBestLanguages.push(highests[i]);
         }
       }
-      for(var i = 0; i < listOfBestLanguages.length; i++){
-        console.log(listOfBestLanguages[i]);
-      }
+      $("#firstBest").after(langDicts[listOfBestLanguages[0]]);
+      $("#secondBest").after(langDicts[listOfBestLanguages[1]]);
+      $("#thirdBest").after(langDicts[listOfBestLanguages[2]]);
     }
     event.preventDefault();
 
