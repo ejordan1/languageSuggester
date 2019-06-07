@@ -1,14 +1,8 @@
-var dict = {
-  "java": 0,
-  "python":0,
-  "csharp": 0,
-  "ruby": 0,
-  "javascript": 0
-}
+
 
 $(document).ready(function(){
+
   $("#form").submit(function(event){
-debugger;
     var q1answer = parseInt($("input:radio[name=q1]:checked").val());
     var q2answer = parseInt($("input:radio[name=q2]:checked").val());
     var q3answer = parseInt($("input:radio[name=q3]:checked").val());
@@ -40,24 +34,54 @@ debugger;
       alert("answer all the questions");
       allAnswered = true;
     } else {
+      debugger;
+      var languagesArray = [];
+      var numberOfLanguages = 6;
+      for (var i = 0; i < numberOfLanguages; i++){
+        languagesArray.push(0);
+      }
 
-      dict["java"]+= q1answer;
-      dict["java"]+= q2answer;
-      dict["java"]+= q4answer;
+      languagesArray[0] += q1answer;
+      languagesArray[1] += q2answer;
+      languagesArray[2] += q3answer;
+      languagesArray[3] += q4answer;
+      languagesArray[4] += q5answer;
+      languagesArray[5] += q5answer;
 
-      dict["c#"] += q1answer;
-      dict["c#"] += q2answer;
-      dict["c#"] += q3answer;
-      dict["c#"] += q4answer;
-
-      dict["ruby"] += q6answer;
-      dict["javascript"] += q5answer;
-      dict["python"] += q5answer;
-
-
+      var listOfBestLanguages = [];
+      while (listOfBestLanguages.length < 3){
+        var highests = getValuesAndSetToLow(findMaxValueArray(languagesArray), languagesArray);
+        for (var i = 0; i < highests.length; i++){
+          listOfBestLanguages.push(highests[i]);
+        }
+      }
+      for(var i = 0; i < listOfBestLanguages.length; i++){
+        console.log(listOfBestLanguages[i]);
+      }
     }
-
-  event.preventDefault();
+    event.preventDefault();
 
   });
 });
+
+function getValuesAndSetToLow(value, array){
+  var keys = [];
+  for (var i = 0; i < array.length; i++){
+    if (array[i] === value){
+      keys.push(i);
+      array[i] = -10000;
+    }
+  }
+  return keys;
+}
+
+function findMaxValueArray(array){
+  var maxValue = array[0];
+  for (var i = 1; i < array.length; i++)
+  {
+    if (array[i] > maxValue){
+      maxValue = array[i];
+    }
+  }
+  return maxValue;
+}
