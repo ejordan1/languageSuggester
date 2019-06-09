@@ -58,8 +58,7 @@ $(document).ready(function(){
       alert("answer all the questions");
       allAnswered = true;
     } else {
-      debugger;
-      $(".mainColumn").slideToggle();
+      $(".firstPage").slideToggle();
 
       var languagesArray = [];
       var numberOfLanguages = 15;
@@ -67,14 +66,16 @@ $(document).ready(function(){
         languagesArray.push(0);
       }
 
+      //bias:
+      languagesArray[2] += 2;
+
       languagesArray[0] += q1answer;
 
-      languagesArray[0] += q2answer * 1;
+      languagesArray[0] += q2answer * .5;
       languagesArray[1] += q2answer * 1.5;
       languagesArray[2] += q2answer * 1;
       languagesArray[6] += q2answer * 1;
 
-      languagesArray[0] += q3answer * -1;
       languagesArray[2] += q3answer * -1;
       languagesArray[1] += q3answer * -1;
       languagesArray[4] += q3answer * 1;
@@ -94,41 +95,38 @@ $(document).ready(function(){
           listOfBestLanguages.push(highests[i]);
         }
       }
-      //this is revrsed right now because they are just getting putting in sequentially, the
-      //firstsecondthirdbox grid style isnt being applied, so it is reversed
-
           switch (langDicts[listOfBestLanguages[2]]) {
             case "Javascript":
-            $(".javascriptBox").removeClass("hideBox");
+            $(".javascriptBox").slideToggle();
             $(".javascriptBox").addClass("firstBox");
             break;
             case "Csharp":
-            $(".csharpBox").removeClass("hideBox");
+            $(".csharpBox").slideToggle();
             $(".csharpBox").addClass("firstBox");
             break;
             case "Java":
-            $(".javaBox").removeClass("hideBox");
+            $(".javaBox").slideToggle();
             $(".javaBox").addClass("firstBox");
             break;
             case "Python":
-            $(".pythonBox").removeClass("hideBox");
+            $(".pythonBox").slideToggle();
             $(".pythonBox").addClass("firstBox");
             break;
             case "Ruby":
-            $(".rubyBox").removeClass("hideBox");
+            $(".rubyBox").slideToggle();
             $(".rubyBox").addClass("firstBox");
             break;
             case "Cplusplus":
             debugger;
-            $(".cplusplusBox").removeClass("hideBox");
+            $(".cplusplusBox").slideToggle();
             $(".cplusplusBox").addClass("firstBox");
             break;
             case "Haskell":
-            $(".haskellBox").removeClass("hideBox");
+            $(".haskellBox").slideToggle();
             $(".haskellBox").addClass("firstBox");
             break;
             case "C":
-            $(".cBox").removeClass("hideBox");
+            $(".cBox").slideToggle();
             $(".cBox").addClass("firstBox");
             break;
             default:
@@ -137,36 +135,36 @@ $(document).ready(function(){
 
           switch (langDicts[listOfBestLanguages[1]]) {
             case "Javascript":
-            $(".javascriptBox").removeClass("hideBox");
+            $(".javascriptBox").slideToggle();
             $(".javascriptBox").addClass("firstBox");
             break;
             case "Csharp":
-            $(".csharpBox").removeClass("hideBox");
+            $(".csharpBox").slideToggle();
             $(".csharpBox").addClass("secondBox");
             break;
             case "Java":
-            $(".javaBox").removeClass("hideBox");
+            $(".javaBox").slideToggle();
             $(".javaBox").addClass("secondBox");
             break;
             case "Python":
-            $(".pythonBox").removeClass("hideBox");
+            $(".pythonBox").slideToggle();
             $(".pythonBox").addClass("secondBox");
             break;
             case "Ruby":
-            $(".rubyBox").removeClass("hideBox");
+            $(".rubyBox").slideToggle();
             $(".rubyBox").addClass("secondBox");
             break;
             case "C++":
             debugger;
-            $(".cplusplusBox").removeClass("hideBox");
+            $(".cplusplusBox").slideToggle();
             $(".cplusplusBox").addClass("secondBox");
             break;
             case "Haskell":
-            $(".haskellBox").removeClass("hideBox");
+            $(".haskellBox").slideToggle();
             $(".haskellBox").addClass("secondBox");
             break;
             case "C":
-            $(".cBox").removeClass("hideBox");
+            $(".cBox").slideToggle();
             $(".cBox").addClass("firstBox");
             default:
           }
@@ -174,47 +172,48 @@ $(document).ready(function(){
 
           switch (langDicts[listOfBestLanguages[0]]) {
             case "Javascript":
-            $(".javascriptBox").removeClass("hideBox");
+            $(".javascriptBox").slideToggle();
             $(".javascriptBox").addClass("thirdBox");
             break;
             case "Csharp":
-            $(".csharpBox").removeClass("hideBox");
+            $(".csharpBox").slideToggle();
             $(".csharpBox").addClass("thirdBox");
             break;
             case "Java":
-            $(".javaBox").removeClass("hideBox");
+            $(".javaBox").slideToggle();
             $(".javaBox").addClass("thirdBox");
             break;
             case "Python":
-            $(".pythonBox").removeClass("hideBox");
+            $(".pythonBox").slideToggle();
             $(".pythonBox").addClass("thirdBox");
             break;
             case "Ruby":
-            $(".rubyBox").removeClass("hideBox");
+            $(".rubyBox").slideToggle();
             $(".rubyBox").addClass("thirdBox");
             break;
             case "Cplusplus":
             debugger;
-            $(".cplusplusBox").removeClass("hideBox");
+            $(".cplusplusBox").slideToggle();
             $(".cplusplusBox").addClass("thirdBox");
             break;
             case "Haskell":
-            $(".haskellBox").removeClass("hideBox");
+            $(".haskellBox").slideToggle();
             $(".haskellBox").addClass("thirdBox");
             break;
             case "C":
-            $(".cBox").removeClass("hideBox");
+            $(".cBox").slideToggle();
             $(".cBox").addClass("firstBox");
             default:
           }
 
       langDicts[6] = "C++";
-      $("#firstBest").after("<span  class = 'result'>" + langDicts[listOfBestLanguages[0]] + "!" + "</span>");
-      $("#secondBest").after("<span  class = 'result'>" + langDicts[listOfBestLanguages[1]] + "!" + "</span>");
-      $("#thirdBest").after("<span  class = 'result'>" + langDicts[listOfBestLanguages[2]] + "!" + "</span>");
+      $("#firstBest").after("<span style= 'font-style: italic' class = 'result italic'>" + langDicts[listOfBestLanguages[0]] + "!" + "</span>");
+      $("#secondBest").after("<span style= 'font-style: italic' class = 'result italic'>" + langDicts[listOfBestLanguages[1]] + "!" + "</span>");
+      $("#thirdBest").after("<span  style= 'font-style: italic' class = 'result italic'>" + langDicts[listOfBestLanguages[2]] + "!" + "</span>");
       $(".results").removeClass("hideBox");
       $(".resultsTitle").removeClass("hideBox");
       // window.scrollBy(0, 1500);
+
 
     }
 
